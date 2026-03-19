@@ -15,6 +15,17 @@
  *******************************************************/
 
 //TODO: Place one object here.
+let SAVIOR = {
+    name : "Tobias",
+    age: 21,
+    location: "Hagenberg",
+    hobbies: ["football","swim"],
+    type_of_companion: "Horse",
+    companion: {food: "grass",eyecolor: "blue"}
+
+
+
+}
 
 /*******************************************************
  *   DO NOT CHANGE THE CODE BELOW!

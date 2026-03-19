@@ -22,11 +22,11 @@ const O = "Dr. DOM (O)";
 
 //Some of your epic battles:
 const BATTLEFIELD =
-    [
-        [O, X, O],
-        [X, X, X],
-        [O, O, X],
-    ];
+   [
+       [O, X, O],
+       [X, O, O],
+       [O, X, X],
+   ];
 // const BATTLEFIELD =
 //     [
 //         [null, X, X],
@@ -45,7 +45,7 @@ const BATTLEFIELD =
 //         [X, O, X],
 //         [O, X, O],
 //     ];
-//
+
 // const BATTLEFIELD =
 //     [
 //         [O, X, X, X],
@@ -68,3 +68,116 @@ const BATTLEFIELD =
 // Check Vertical
 // Check Main Diagonal
 // Check Anti Diagonal
+
+//Horizontal
+let counthori = 0;
+let countverti = 0;
+let countdiago = 0;
+let countantidiago = 0;
+let battleover = false;
+
+for(let i = 0; i < BATTLEFIELD.length; i++) {
+
+    for(let j = 0; j < BATTLEFIELD[i].length; j++) {
+        if(BATTLEFIELD[i][j] === X) {
+            counthori++;
+        }
+        else if(BATTLEFIELD[i][j] === O) {
+            counthori--;
+        }
+        else{
+            counthori = 0;
+        }
+
+        if(BATTLEFIELD[j][i] == X)
+        {
+            countverti++;
+        }
+        else if(BATTLEFIELD[j][i] == O)
+        {
+            countverti--;
+        }
+        else{
+            countverti = 0;
+        }
+
+
+
+    }
+    if(BATTLEFIELD[i][i] == X)
+    {
+        countdiago++;
+    }
+    else if(BATTLEFIELD[i][i] == O)
+    {
+        countdiago--;
+    }
+    else{
+        countdiago = 0;
+    }
+    if(BATTLEFIELD[i][BATTLEFIELD.length-1-i] == X)
+    {
+        countantidiago++;
+    }
+    else if(BATTLEFIELD[i][BATTLEFIELD.length-1-i] == O)
+    {
+        countantidiago--;
+    }
+    else{
+        countantidiago = 0;
+    }
+
+    if(counthori== BATTLEFIELD.length) {
+        console.log(X + " won Horizontal!");
+        battleover = true;
+    }
+    else if(countverti == BATTLEFIELD.length)
+    {
+        console.log(X + " won Vertical!");
+        battleover = true;
+    }
+    else if(countdiago == BATTLEFIELD.length)
+    {
+        console.log(X + " won Diagonal!");
+        battleover = true;
+    }
+    else if (countantidiago == BATTLEFIELD.length)
+    {
+        console.log(X + " won Anti Diagonal!");
+        battleover = true;
+    }
+    else if(counthori == BATTLEFIELD.length *-1){
+        console.log(O + " won Horizontal!");
+        battleover = true;
+    }
+    else if(countverti == BATTLEFIELD.length*-1)
+    {
+        console.log(O + " won Vertical!");
+        battleover = true;
+    }
+    else if(countdiago == BATTLEFIELD.length*-1)
+    {
+        console.log(O + " won Diagonal!");
+        battleover = true;
+    }
+    else if(countantidiago == BATTLEFIELD.length*-1)
+    {
+        console.log(O + " won Anti Diagonal!");
+        battleover = true;
+    }
+    counthori= 0;
+    countverti = 0;
+
+
+}
+if(!battleover)
+{
+    console.log("Kein Spieler hat gewonnen!");
+}
+
+
+
+
+
+
+
