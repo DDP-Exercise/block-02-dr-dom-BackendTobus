@@ -26,7 +26,12 @@
  * First of all, we need to be able to read the text again,
  * without the risk of catching an eye infection!
  */
-
+let paragraphs = document.getElementsByTagName("p")
+for(let item of paragraphs )
+{
+    item.style.backgroundColor = "white";
+    item.style.color = "black";
+}
 
 
 
@@ -36,6 +41,11 @@
  * Can't we just remove them all together?
  */
 
+let minions = document.getElementsByTagName("ul")
+for(let item of minions)
+{
+    item.remove()
+}
 
 
 
@@ -44,7 +54,9 @@
  * Wow! You are so powerful! Quick now, set our heroes of the web free!
  * And while at it, let the world know again, that they are back in town!
  */
-
+let heroes = document.getElementById("heroes_of_the_web");
+heroes.style.visibility = "visible";
+console.log("Heroes are back!");
 
 
 /**
@@ -53,7 +65,8 @@
  * Do your thing, savior!
  */
 
-
+let h1 = document.getElementById("title");
+h1.innerHTML = "We, the mighty Heroes of the web, will protect you!";
 
 /**
  * TODO 5:
@@ -63,3 +76,5 @@
  * It might sound paranoid. But I can't get rid of the feeling, that he is still here,
  * somewhere in the DOM. I can still feel his Code. Can you identify the source and remove it?
  */
+let linktoDom = document.querySelector("script");
+linktoDom.remove();
